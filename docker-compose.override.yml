@@ -3,19 +3,19 @@ services:
     image: hardcoreeng/front:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— acrescentar
 
   account:
     image: hardcoreeng/account:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— já tínhamos
 
   transactor:
     image: hardcoreeng/transactor:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— já tínhamos
 
   stats:
     image: hardcoreeng/stats:latest
