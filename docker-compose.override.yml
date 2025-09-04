@@ -3,19 +3,20 @@ services:
     image: hardcoreeng/front:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— acrescentar
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - ACCOUNTS_URL=http://account:3000   # força o front a falar com account via HTTP
 
   account:
     image: hardcoreeng/account:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— já tínhamos
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
 
   transactor:
     image: hardcoreeng/transactor:latest
     env_file: [.env]
     environment:
-      - NODE_TLS_REJECT_UNAUTHORIZED=0   # <— já tínhamos
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
 
   stats:
     image: hardcoreeng/stats:latest
