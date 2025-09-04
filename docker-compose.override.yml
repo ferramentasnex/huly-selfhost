@@ -1,22 +1,25 @@
 services:
   front:
     image: hardcoreeng/front:latest
-    env_file: [.huly.env]
+    env_file: [.env]
 
   account:
     image: hardcoreeng/account:latest
-    env_file: [.huly.env]
+    env_file: [.env]
+    environment:
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
 
   transactor:
     image: hardcoreeng/transactor:latest
-    env_file: [.huly.env]
+    env_file: [.env]
+    environment:
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
 
   stats:
     image: hardcoreeng/stats:latest
-    env_file: [.huly.env]
+    env_file: [.env]
 
-  # Se o compose do Huly tiver mais serviços que usam variáveis (ex.: worker, notification, calendar),
-  # repita a mesma ideia:
+  # se precisar de outros serviços com env (worker, notification, calendar, etc), repita o padrão:
   # worker:
   #   image: hardcoreeng/worker:latest
-  #   env_file: [.huly.env]
+  #   env_file: [.env]
