@@ -1,0 +1,22 @@
+services:
+  front:
+    image: hardcoreeng/front:latest
+    env_file: [.huly.env]
+
+  account:
+    image: hardcoreeng/account:latest
+    env_file: [.huly.env]
+
+  transactor:
+    image: hardcoreeng/transactor:latest
+    env_file: [.huly.env]
+
+  stats:
+    image: hardcoreeng/stats:latest
+    env_file: [.huly.env]
+
+  # Se o compose do Huly tiver mais serviços que usam variáveis (ex.: worker, notification, calendar),
+  # repita a mesma ideia:
+  # worker:
+  #   image: hardcoreeng/worker:latest
+  #   env_file: [.huly.env]
