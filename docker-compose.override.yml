@@ -2,6 +2,8 @@ services:
   front:
     image: hardcoreeng/front:latest
     env_file: [.env]
+    environment:
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
 
   account:
     image: hardcoreeng/account:latest
@@ -18,8 +20,3 @@ services:
   stats:
     image: hardcoreeng/stats:latest
     env_file: [.env]
-
-  # se precisar de outros serviços com env (worker, notification, calendar, etc), repita o padrão:
-  # worker:
-  #   image: hardcoreeng/worker:latest
-  #   env_file: [.env]
