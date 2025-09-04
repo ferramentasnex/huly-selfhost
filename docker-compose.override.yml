@@ -4,10 +4,12 @@ services:
     env_file: [.env]
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - SECURE=false
+      - HOST_ADDRESS=31.97.16.132
       - ACCOUNTS_URL=http://account:3000
       - WORKSPACE_URL=http://workspace:8080
       - STATS_URL=http://stats:4900
-      # se depois você habilitar os serviços abaixo, pode manter tudo em HTTP também:
+      # se depois habilitar outros:
       # - AI_URL=http://aibot:4010
       # - LOVE_ENDPOINT=http://love:8096
 
@@ -16,12 +18,15 @@ services:
     env_file: [.env]
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - MAIL_URL=http://mail:8097    # se usar mail depois, já fica http
 
   transactor:
     image: hardcoreeng/transactor:latest
     env_file: [.env]
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - AI_BOT_URL=http://aibot:4010 # se usar aibot depois, mantenha http
+      - WEB_PUSH_URL=http://ses:3335 # idem
 
   stats:
     image: hardcoreeng/stats:latest
