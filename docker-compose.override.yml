@@ -4,7 +4,12 @@ services:
     env_file: [.env]
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
-      - ACCOUNTS_URL=http://account:3000   # força o front a falar com account via HTTP
+      - ACCOUNTS_URL=http://account:3000
+      - WORKSPACE_URL=http://workspace:8080
+      - STATS_URL=http://stats:4900
+      # se depois você habilitar os serviços abaixo, pode manter tudo em HTTP também:
+      # - AI_URL=http://aibot:4010
+      # - LOVE_ENDPOINT=http://love:8096
 
   account:
     image: hardcoreeng/account:latest
